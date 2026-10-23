@@ -5,3 +5,4 @@ PyJWT
 dj-database-url
 psycopg2-binary
 gunicorn
+drf-spectacular
