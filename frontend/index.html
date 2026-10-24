@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toast"></div>
+
+  <section id="authView" class="auth-shell">
+    <div class="auth-card">
+      <div class="brand">Task Management API</div>
+      <p class="muted">Manage your tasks, priorities and productivity in one place.</p>
+      <div class="tabs">
+        <button class="tab active" data-auth="login">Login</button>
+        <button class="tab" data-auth="register">Register</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label>Username<input id="loginUsername" required></label>
+        <label>Password<input id="loginPassword" type="password" required></label>
+        <button class="primary" type="submit">Login</button>
+      </form>
+
+      <form id="registerForm" class="auth-form hidden">
+        <label>Username<input id="regUsername" required></label>
+        <label>Email<input id="regEmail" type="email" required></label>
+        <label>Password<input id="regPassword" type="password" minlength="8" required></label>
+        <button class="primary" type="submit">Create Account</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="appView" class="app-shell hidden">
+    <header class="topbar">
+      <div><strong>Task Management API</strong><span id="welcomeUser"></span></div>
+      <button id="logoutBtn" class="ghost">Logout</button>
+    </header>
+
+    <main class="container">
+      <div class="page-head">
+        <div><h1>Dashboard</h1><p class="muted">Stay organized and track your productivity.</p></div>
+        <button id="newTaskBtn" class="primary">+ New Task</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span>Total</span><strong id="total">0</strong></div>
+        <div class="stat"><span>Completed</span><strong id="completed">0</strong></div>
+        <div class="stat"><span>Pending</span><strong id="pending">0</strong></div>
+        <div class="stat"><span>In Progress</span><strong id="inProgress">0</strong></div>
+        <div class="stat"><span>Overdue</span><strong id="overdue">0</strong></div>
+        <div class="stat"><span>Completion</span><strong id="completionRate">0%</strong></div>
+      </div>
+
+      <div class="toolbar">
+        <input id="search" placeholder="Search tasks...">
+        <select id="statusFilter"><option value="">All Status</option><option>Pending</option><option>In Progress</option><option>Completed</option></select>
+        <select id="priorityFilter"><option value="">All Priority</option><option>Low</option><option>Medium</option><option>High</option><option>Urgent</option></select>
+        <input id="categoryFilter" placeholder="Category">
+        <select id="ordering"><option value="-created_at">Newest</option><option value="created_at">Oldest</option><option value="due_date">Due date</option><option value="-due_date">Latest due date</option><option value="-title">Title Z-A</option></select>
+        <button id="clearFilters" class="ghost">Clear</button>
+      </div>
+
+      <div id="taskList" class="task-grid"></div>
+      <div id="emptyState" class="empty hidden">No tasks found.</div>
+    </main>
+  </section>
+
+  <div id="taskModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head"><h2 id="modalTitle">New Task</h2><button id="closeModal" class="icon">×</button></div>
+      <form id="taskForm">
+        <input id="taskId" type="hidden">
+        <label>Title<input id="title" required maxlength="200"></label>
+        <label>Description<textarea id="description" rows="4"></textarea></label>
+        <div class="form-row">
+          <label>Status<select id="status"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label>
+          <label>Priority<select id="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></label>
+        </div>
+        <div class="form-row">
+          <label>Category<input id="category" placeholder="Work, Study, Personal"></label>
+          <label>Due date<input id="dueDate" type="date"></label>
+        </div>
+        <button class="primary" type="submit">Save Task</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
