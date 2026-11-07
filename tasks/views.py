@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 from django.utils import timezone
 from .models import Task, TaskDependency, TaskTemplate, Reminder
-from .serializers import RegisterSerializer, TaskSerializer, ReminderSerializer
+from .serializers import RegisterSerializer, TaskSerializer, ReminderSerializer,TaskTemplateSerializer
 
 
 def call_gemini_with_retry(client, model, input_text, response_format=None, max_retries=3):
