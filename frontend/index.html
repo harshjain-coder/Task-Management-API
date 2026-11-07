@@ -3,87 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Management API</title>
+  <title>Smart Task Management — Plan less. Finish more.</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="toast"></div>
 
-  <section id="authView" class="auth-shell">
+  <!-- Public landing page -->
+  <div id="landingView" class="landing-shell">
+    <header class="landing-nav">
+      <a href="#" class="brand-link" onclick="showLanding(); return false;">
+        <span class="brand-mark">✓</span><span>Smart Task Management</span>
+      </a>
+      <div class="nav-actions"><button id="navLoginBtn" class="nav-btn secondary">Log in</button><button id="navSignupBtn" class="nav-btn primary">Get started free</button></div>
+    </header>
+
+    <main>
+      <section class="hero hero-pro">
+        <div class="hero-copy">
+          <div class="live-pill"><span class="live-dot"></span> Your smarter workday starts here · powered by Gemini AI</div>
+          <h1>Tell us what you need.<br><span>We’ll help you get it done.</span></h1>
+          <p class="hero-text">Stop spending your time organizing work. Create tasks in natural language, see what matters first, plan deadlines, and keep your whole day in one calm workspace.</p>
+          <div class="hero-actions"><button id="heroSignupBtn" class="primary hero-btn">Start organizing free →</button><button id="heroLoginBtn" class="secondary hero-btn">I already have an account</button></div>
+          <div class="hero-note">No complicated setup. Create your account, get signed in automatically, and turn your first thought into action in seconds.</div>
+          <div class="trust-row"><span>✦ AI task creation</span><span>✓ Smart priorities</span><span>◷ Calendar + reminders</span><span>↗ Kanban workflow</span></div>
+        </div>
+
+        <div class="hero-product">
+          <div class="glow-orb orb-one"></div><div class="glow-orb orb-two"></div>
+          <div class="product-window">
+            <div class="product-bar"><div class="preview-dots"><i></i><i></i><i></i></div><span>Smart Task Management</span><span class="status-pill">● Live workspace</span></div>
+            <div class="product-content">
+              <div class="product-heading"><div><small>GOOD MORNING</small><h3>Make today count. 👋</h3></div><button class="mini-add">+ New Task</button></div>
+              <div class="ai-demo"><div class="ai-demo-icon">✦</div><div><b>AI Task Assistant</b><p>“Plan my Python interview prep for this week.”</p></div><span>→</span></div>
+              <div class="mini-stats"><div><small>All tasks</small><b>24</b><em>+4 this week</em></div><div><small>Completed</small><b>15</b><em>62% done</em></div><div><small>In progress</small><b>6</b><em>Focus now</em></div><div><small>Overdue</small><b>3</b><em>Needs attention</em></div></div>
+              <div class="demo-section-head"><b>Today’s focus</b><span>View all →</span></div>
+              <div class="mini-task-list">
+                <div class="mini-task"><span class="check done">✓</span><div><b>Finish portfolio website</b><small>Development · High · Done</small></div><span class="mini-badge done-badge">Done</span></div>
+                <div class="mini-task active-demo"><span class="check"></span><div><b>Practice Django interview questions</b><small>Study · Urgent · Today</small></div><span class="mini-badge urgent-badge">Urgent</span></div>
+                <div class="mini-task"><span class="check"></span><div><b>Apply to 5 backend jobs</b><small>Career · Medium · Sunday</small></div><span class="mini-badge progress-badge">Planned</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-prompt-section">
+        <div class="section-heading"><span class="eyebrow">JUST SAY WHAT YOU NEED</span><h2>From thought → organized action.</h2><p>You don’t need to fill five forms for five tasks. Tell the assistant what’s on your mind.</p></div>
+        <div class="prompt-showcase">
+          <div class="prompt-card"><div class="prompt-avatar">You</div><div><b>“Tomorrow finish my resume, Friday revise Django, and Sunday apply to 10 jobs.”</b><small>One message. Multiple tasks. Dates and priorities handled for you.</small></div></div>
+          <div class="prompt-arrow">↓</div>
+          <div class="result-card"><div class="result-avatar">✦</div><div class="result-list"><div><b>Finish resume</b><span>Tomorrow · High</span></div><div><b>Revise Django</b><span>Friday · Medium</span></div><div><b>Apply to 10 jobs</b><span>Sunday · High</span></div></div><span class="created-pill">✓ Created</span></div>
+        </div>
+      </section>
+
+      <section class="feature-section feature-section-pro">
+        <div class="section-heading"><span class="eyebrow">MADE FOR REAL LIFE</span><h2>Everything you need to stay on top.</h2><p>Use as much or as little as you want. Your workspace adapts to the way you work.</p></div>
+        <div class="feature-grid feature-grid-pro">
+          <article class="feature-card featured"><div class="feature-icon">✦</div><h3>AI Task Assistant</h3><p>Turn natural language into real tasks. Create one task or a whole plan without repetitive forms.</p><span>Try it in your workspace →</span></article>
+          <article class="feature-card"><div class="feature-icon">↗</div><h3>Know what matters</h3><p>Smart priority scoring helps urgent and deadline-sensitive work rise to the top.</p></article>
+          <article class="feature-card"><div class="feature-icon">▦</div><h3>Work your way</h3><p>Switch between List, Kanban and Calendar views depending on how you want to think.</p></article>
+          <article class="feature-card"><div class="feature-icon">⌁</div><h3>Break big work down</h3><p>Use subtasks, dependencies and reusable templates to turn complex work into clear next steps.</p></article>
+          <article class="feature-card"><div class="feature-icon">◔</div><h3>See your progress</h3><p>Productivity metrics and AI insights show what is going well and where your attention is needed.</p></article>
+          <article class="feature-card"><div class="feature-icon">◷</div><h3>Don’t miss deadlines</h3><p>Set reminders and keep important tasks visible before they become overdue.</p></article>
+        </div>
+      </section>
+
+      <section class="benefit-strip"><div><strong>Less admin.</strong><span>More time doing the actual work.</span></div><div><strong>Less forgetting.</strong><span>Clear deadlines, priorities and reminders.</span></div><div><strong>Less friction.</strong><span>Just tell the assistant what you need.</span></div></section>
+
+      <section class="cta-section cta-pro"><div><span class="eyebrow">YOUR NEXT STEP</span><h2>Give your to-do list a smarter home.</h2><p>Create your account and start with whatever is on your mind right now.</p></div><button id="bottomSignupBtn" class="primary hero-btn">Create my workspace →</button></section>
+    </main>
+    <footer class="landing-footer"><span>© 2026 Smart Task Management</span><span>Plan clearly. Focus deeply. Finish confidently.</span></footer>
+  </div>
+
+  <!-- Login / signup modal -->
+  <div id="authModal" class="auth-modal hidden">
+    <div class="auth-overlay" id="authOverlay"></div>
     <div class="auth-card">
-      <div class="brand">Task Management API</div>
-      <p class="muted">Manage your tasks, priorities and productivity in one place.</p>
+      <button id="closeAuth" class="auth-close" aria-label="Close">×</button>
+      <div class="auth-brand">Smart Task Management</div>
+      <p class="muted auth-subtitle">Log in or create an account to access your workspace.</p>
+
       <div class="tabs">
-        <button class="tab active" data-auth="login">Login</button>
-        <button class="tab" data-auth="register">Register</button>
+        <button id="loginTab" class="tab active">Login</button>
+        <button id="registerTab" class="tab">Sign Up</button>
       </div>
 
       <form id="loginForm" class="auth-form">
-        <label>Username<input id="loginUsername" required></label>
-        <label>Password<input id="loginPassword" type="password" required></label>
-        <button class="primary" type="submit">Login</button>
+        <label>Username<input id="loginUsername" autocomplete="username" required></label>
+        <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+        <button class="primary">Login</button>
+        <div id="loginMsg" class="message"></div>
       </form>
 
       <form id="registerForm" class="auth-form hidden">
-        <label>Username<input id="regUsername" required></label>
-        <label>Email<input id="regEmail" type="email" required></label>
-        <label>Password<input id="regPassword" type="password" minlength="8" required></label>
-        <button class="primary" type="submit">Create Account</button>
+        <label>Username<input id="registerUsername" autocomplete="username" required></label>
+        <label>Email<input id="registerEmail" type="email" autocomplete="email" required></label>
+        <label>Password<input id="registerPassword" type="password" minlength="8" autocomplete="new-password" required></label>
+        <button class="primary">Create Account</button>
+        <div id="registerMsg" class="message"></div>
       </form>
     </div>
-  </section>
+  </div>
 
-  <section id="appView" class="app-shell hidden">
+  <!-- Logged-in app -->
+  <div id="appView" class="app-shell hidden">
     <header class="topbar">
-      <div><strong>Task Management API</strong><span id="welcomeUser"></span></div>
-      <button id="logoutBtn" class="ghost">Logout</button>
+      <div><strong>Task Management</strong><span id="welcome"></span></div>
+      <div class="topbar-actions"><button id="aiAssistantBtn" class="ai-btn">✦ AI Task Assistant</button><button id="logoutBtn" class="ghost">Logout</button></div>
     </header>
 
     <main class="container">
-      <div class="page-head">
-        <div><h1>Dashboard</h1><p class="muted">Stay organized and track your productivity.</p></div>
-        <button id="newTaskBtn" class="primary">+ New Task</button>
-      </div>
+      <section class="page-head">
+        <div><h1>Dashboard</h1><p class="muted">Your productivity at a glance.</p></div>
+        <div class="page-actions"><button id="insightsBtn" class="secondary">✦ AI Insights</button><button id="remindersBtn" class="secondary">🔔 Reminders</button><button id="templatesBtn" class="secondary">▣ Templates</button><button id="newTaskBtn" class="primary">+ New Task</button></div>
+      </section>
 
-      <div class="stats">
-        <div class="stat"><span>Total</span><strong id="total">0</strong></div>
-        <div class="stat"><span>Completed</span><strong id="completed">0</strong></div>
-        <div class="stat"><span>Pending</span><strong id="pending">0</strong></div>
-        <div class="stat"><span>In Progress</span><strong id="inProgress">0</strong></div>
-        <div class="stat"><span>Overdue</span><strong id="overdue">0</strong></div>
-        <div class="stat"><span>Completion</span><strong id="completionRate">0%</strong></div>
-      </div>
+      <section class="stats">
+        <div class="stat"><span>Total</span><strong id="totalStat">0</strong></div>
+        <div class="stat"><span>Completed</span><strong id="completedStat">0</strong></div>
+        <div class="stat"><span>Pending</span><strong id="pendingStat">0</strong></div>
+        <div class="stat"><span>In Progress</span><strong id="progressStat">0</strong></div>
+        <div class="stat"><span>Overdue</span><strong id="overdueStat">0</strong></div>
+        <div class="stat"><span>Completion</span><strong id="rateStat">0%</strong></div>
+      </section>
 
-      <div class="toolbar">
-        <input id="search" placeholder="Search tasks...">
+      <section class="toolbar">
+        <input id="searchInput" placeholder="Search tasks...">
         <select id="statusFilter"><option value="">All Status</option><option>Pending</option><option>In Progress</option><option>Completed</option></select>
         <select id="priorityFilter"><option value="">All Priority</option><option>Low</option><option>Medium</option><option>High</option><option>Urgent</option></select>
         <input id="categoryFilter" placeholder="Category">
-        <select id="ordering"><option value="-created_at">Newest</option><option value="created_at">Oldest</option><option value="due_date">Due date</option><option value="-due_date">Latest due date</option><option value="-title">Title Z-A</option></select>
+        <select id="sortFilter"><option value="-created_at">Newest</option><option value="due_date">Due date</option><option value="-due_date">Latest due</option><option value="title">A-Z</option></select>
         <button id="clearFilters" class="ghost">Clear</button>
-      </div>
+      </section>
 
-      <div id="taskList" class="task-grid"></div>
-      <div id="emptyState" class="empty hidden">No tasks found.</div>
+      <section class="view-switcher"><button id="listViewBtn" class="view-btn active">☷ List</button><button id="kanbanViewBtn" class="view-btn">▦ Kanban</button><button id="calendarViewBtn" class="view-btn">▣ Calendar</button></section>
+      <section id="taskGrid" class="task-grid"></section>
+      <section id="kanbanBoard" class="kanban-board hidden"></section>
+      <section id="calendarView" class="calendar-view hidden"></section>
+      <div id="emptyState" class="empty hidden">No tasks found. Create your first task.</div>
     </main>
-  </section>
+  </div>
 
   <div id="taskModal" class="modal hidden">
     <div class="modal-card">
-      <div class="modal-head"><h2 id="modalTitle">New Task</h2><button id="closeModal" class="icon">×</button></div>
+      <div class="modal-head"><h2 id="modalTitle">Create Task</h2><button id="closeModal" class="icon">×</button></div>
       <form id="taskForm">
-        <input id="taskId" type="hidden">
-        <label>Title<input id="title" required maxlength="200"></label>
-        <label>Description<textarea id="description" rows="4"></textarea></label>
+        <input type="hidden" id="taskId">
+        <label>Title<input id="taskTitle" required maxlength="200"></label>
+        <label>Description<textarea id="taskDescription" rows="4"></textarea></label>
         <div class="form-row">
-          <label>Status<select id="status"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label>
-          <label>Priority<select id="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></label>
+          <label>Status<select id="taskStatus"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label>
+          <label>Priority<select id="taskPriority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></label>
         </div>
         <div class="form-row">
-          <label>Category<input id="category" placeholder="Work, Study, Personal"></label>
-          <label>Due date<input id="dueDate" type="date"></label>
+          <label>Category<input id="taskCategory" placeholder="Work, Study..."></label>
+          <label>Due Date<input id="taskDueDate" type="date"></label>
         </div>
-        <button class="primary" type="submit">Save Task</button>
+        <label>Parent Task (Subtask) <select id="taskParent"><option value="">No parent task</option></select></label>
+        <small class="form-help">Use this to turn the task into a subtask of another task.</small>
+        <label>Depends On <select id="taskDependencies" multiple size="4"></select></label>
+        <small class="form-help">Select tasks that must be completed before this task can start.</small>
+        <button class="primary">Save Task</button>
+        <div id="taskMsg" class="message"></div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- Templates -->
+  <div id="templateModal" class="modal hidden">
+    <div class="modal-card template-card">
+      <div class="modal-head"><h2>Task Templates</h2><button id="closeTemplateModal" class="icon">×</button></div>
+      <p class="muted">Save repeatable workflows and create all their tasks in one click.</p>
+      <div id="templateList" class="template-list"></div>
+      <hr class="divider">
+      <h3>Create Template</h3>
+      <form id="templateForm">
+        <label>Template Name<input id="templateName" maxlength="120" placeholder="Daily Study Plan" required></label>
+        <label>Description<textarea id="templateDescription" rows="2" placeholder="Optional"></textarea></label>
+        <div id="templateItems" class="template-items"></div>
+        <div class="template-form-actions"><button type="button" id="addTemplateItem" class="secondary">+ Add Task</button><button class="primary">Save Template</button></div>
+        <div id="templateMsg" class="message"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- AI Task Assistant -->
+  <div id="aiChat" class="ai-chat hidden">
+    <div class="ai-chat-card">
+      <div class="ai-chat-head">
+        <div><strong>✦ AI Task Assistant</strong><span>Tell me what you need to get done.</span></div>
+        <button id="closeAiChat" class="icon">×</button>
+      </div>
+      <div id="aiMessages" class="ai-messages">
+        <div class="ai-message bot">Hi! 👋 Tell me your tasks in one message. For example: <b>“Tomorrow finish my resume, call Rahul on Friday, and study Django for 2 hours.”</b> I’ll create separate tasks and handle priority, category and dates for you.</div>
+      </div>
+      <div class="ai-suggestions">
+        <button data-prompt="Tomorrow complete my resume and update my GitHub README. Make both high priority.">Resume + GitHub</button>
+        <button data-prompt="This week: study Django, practice Python, and apply to 5 backend jobs. Keep study medium priority and job applications high priority.">Plan my week</button>
+      </div>
+      <form id="aiForm" class="ai-input-row">
+        <textarea id="aiInput" rows="2" placeholder="e.g. Kal resume update karo, Friday Django revise karo..." required></textarea>
+        <button id="aiSendBtn" class="primary" type="submit">Create Tasks</button>
+      </form>
+      <div id="aiMsg" class="message"></div>
+    </div>
+  </div>
+
+
+  <div id="insightsModal" class="modal hidden">
+    <div class="modal-card insight-card">
+      <div class="modal-head"><h2>✦ AI Productivity Insights</h2><button id="closeInsights" class="icon">×</button></div>
+      <div id="insightsContent" class="insights-content"><div class="empty">Loading insights...</div></div>
+    </div>
+  </div>
+
+  <div id="reminderModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head"><h2>🔔 Reminders</h2><button id="closeReminders" class="icon">×</button></div>
+      <div id="reminderList" class="reminder-list"></div>
+      <hr class="divider">
+      <h3>Set Reminder</h3>
+      <form id="reminderForm">
+        <label>Task<select id="reminderTask" required></select></label>
+        <label>Remind At<input id="reminderAt" type="datetime-local" required></label>
+        <label>Message<input id="reminderMessage" maxlength="255" placeholder="Optional reminder message"></label>
+        <button class="primary">Create Reminder</button>
+        <div id="reminderMsg" class="message"></div>
       </form>
     </div>
   </div>

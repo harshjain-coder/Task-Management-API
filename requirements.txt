@@ -2,8 +2,10 @@ Django
 djangorestframework
 djangorestframework-simplejwt
 PyJWT
+django-cors-headers
 dj-database-url
 psycopg2-binary
 gunicorn
 drf-spectacular
-django-cors-headers
+google-genai
+python-dotenv
